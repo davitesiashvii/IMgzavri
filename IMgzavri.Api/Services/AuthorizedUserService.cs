@@ -51,7 +51,6 @@ namespace IMgzavri.Api.Services
                 {
                     new Claim("id", user.Id.ToString()),
                     new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Name, user.Name),
                     new Claim("mobileNumber",user.MobileNumber),
                     new Claim("idNumber",user.IdNumber)
                 }),

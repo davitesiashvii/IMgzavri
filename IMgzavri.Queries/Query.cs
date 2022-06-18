@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMgzavri.Queries
 {
-    public class Query : IQuery<Result>
+    public record Query : IQuery<Result>
     {
         public Guid Id { get; }
         public DateTimeOffset CreatedOn { get; }

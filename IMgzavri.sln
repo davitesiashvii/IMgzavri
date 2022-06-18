@@ -7,19 +7,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B7E78416-6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{20EA7D74-0195-4FE1-B0E4-7420944CD200}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Api", "IMgzavri.Api\IMgzavri.Api.csproj", "{6D85AAED-5AFE-4820-A81F-67BC3E6F5A58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Api", "IMgzavri.Api\IMgzavri.Api.csproj", "{6D85AAED-5AFE-4820-A81F-67BC3E6F5A58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{88DFE237-8A1A-43CB-90D7-1D5960C2E752}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Domain", "IMgzavri.Domain\IMgzavri.Domain.csproj", "{504B6C18-577D-4F51-A600-8C0AAC0A95FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Domain", "IMgzavri.Domain\IMgzavri.Domain.csproj", "{504B6C18-577D-4F51-A600-8C0AAC0A95FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Infrastructure", "IMgzavri.Infrastructure\IMgzavri.Infrastructure.csproj", "{6E17FF58-50A0-46DB-A936-F6AB96AFA31E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Infrastructure", "IMgzavri.Infrastructure\IMgzavri.Infrastructure.csproj", "{6E17FF58-50A0-46DB-A936-F6AB96AFA31E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Commands", "IMgzavri.Commands\IMgzavri.Commands.csproj", "{13E89858-8C37-4D02-BF1D-3972AE2BF977}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Commands", "IMgzavri.Commands\IMgzavri.Commands.csproj", "{13E89858-8C37-4D02-BF1D-3972AE2BF977}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Queries", "IMgzavri.Queries\IMgzavri.Queries.csproj", "{BE31D9C9-E9B3-4F02-A6E1-D530E7BC59B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Queries", "IMgzavri.Queries\IMgzavri.Queries.csproj", "{BE31D9C9-E9B3-4F02-A6E1-D530E7BC59B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.Shared", "IMgzavri.Shared\IMgzavri.Shared.csproj", "{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMgzavri.Shared", "IMgzavri.Shared\IMgzavri.Shared.csproj", "{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileStore", "FileStore", "{E74AA5DD-F51D-4132-BFF5-BEF66CF17498}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Domain", "IMgzavri.FileStore.Domain\IMgzavri.FileStore.Domain.csproj", "{B0C6D181-EB5D-4B58-A46F-3570D4883170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Infrastructure", "IMgzavri.FileStore.Infrastructure\IMgzavri.FileStore.Infrastructure.csproj", "{49A74BCA-C0FE-47BB-A288-4C08C9C31046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Commands", "IMgzavri.FileStore.Commands\IMgzavri.FileStore.Commands.csproj", "{84103297-7BAF-42C1-8A10-392DD56A8A26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Queries", "IMgzavri.FileStore.Queries\IMgzavri.FileStore.Queries.csproj", "{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Client", "IMgzavri.FileStore.Client\IMgzavri.FileStore.Client.csproj", "{43CDBD1B-C1E3-4B5C-8331-85729891023D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMgzavri.FileStore.Api", "IMgzavri.FileStore.Api\IMgzavri.FileStore.Api.csproj", "{D232AA5C-CB12-47A4-A674-37D171DE67DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +65,30 @@ Global
 		{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0C6D181-EB5D-4B58-A46F-3570D4883170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0C6D181-EB5D-4B58-A46F-3570D4883170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0C6D181-EB5D-4B58-A46F-3570D4883170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0C6D181-EB5D-4B58-A46F-3570D4883170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49A74BCA-C0FE-47BB-A288-4C08C9C31046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49A74BCA-C0FE-47BB-A288-4C08C9C31046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49A74BCA-C0FE-47BB-A288-4C08C9C31046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49A74BCA-C0FE-47BB-A288-4C08C9C31046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84103297-7BAF-42C1-8A10-392DD56A8A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84103297-7BAF-42C1-8A10-392DD56A8A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84103297-7BAF-42C1-8A10-392DD56A8A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84103297-7BAF-42C1-8A10-392DD56A8A26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CDBD1B-C1E3-4B5C-8331-85729891023D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CDBD1B-C1E3-4B5C-8331-85729891023D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CDBD1B-C1E3-4B5C-8331-85729891023D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CDBD1B-C1E3-4B5C-8331-85729891023D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D232AA5C-CB12-47A4-A674-37D171DE67DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D232AA5C-CB12-47A4-A674-37D171DE67DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D232AA5C-CB12-47A4-A674-37D171DE67DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D232AA5C-CB12-47A4-A674-37D171DE67DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +101,12 @@ Global
 		{13E89858-8C37-4D02-BF1D-3972AE2BF977} = {88DFE237-8A1A-43CB-90D7-1D5960C2E752}
 		{BE31D9C9-E9B3-4F02-A6E1-D530E7BC59B1} = {88DFE237-8A1A-43CB-90D7-1D5960C2E752}
 		{9DD94F03-EF01-4569-8F6D-DA6DE2CA69A6} = {20EA7D74-0195-4FE1-B0E4-7420944CD200}
+		{B0C6D181-EB5D-4B58-A46F-3570D4883170} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
+		{49A74BCA-C0FE-47BB-A288-4C08C9C31046} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
+		{84103297-7BAF-42C1-8A10-392DD56A8A26} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
+		{9CDAEC1E-B5C2-4E96-9085-44AC8497A10A} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
+		{43CDBD1B-C1E3-4B5C-8331-85729891023D} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
+		{D232AA5C-CB12-47A4-A674-37D171DE67DE} = {E74AA5DD-F51D-4132-BFF5-BEF66CF17498}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B150F92B-9383-46C9-81B6-12BD2D03C3A3}

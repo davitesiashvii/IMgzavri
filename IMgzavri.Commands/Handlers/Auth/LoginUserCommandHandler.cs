@@ -1,6 +1,7 @@
 ﻿using IMgzavri.Commands.Commands.Auth;
 using IMgzavri.Commands.Models.ResultModels;
 using IMgzavri.Domain.Models;
+using IMgzavri.FileStore.Client;
 using IMgzavri.Infrastructure.Db;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
@@ -16,7 +17,7 @@ namespace IMgzavri.Commands.Handlers.Auth
     public class LoginUserCommandHandler : CommandHandler<LoginUserCommand>
     {
 
-        public LoginUserCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth) : base(context, auth)
+        public LoginUserCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
         {
         }
 

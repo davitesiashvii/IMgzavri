@@ -10,32 +10,32 @@ namespace IMgzavri.Shared.Domain.Models
     {
         public string Message { get; set; }
 
-        //public Dictionary<string, object> Parameters { get; set; } = new Dictionary<string, object>();
+        public Dictionary<string, object> Parameters { get; set; } = new Dictionary<string, object>();
 
         public object Response { get; set; }
 
-        public HttpResultStatus Status { get; set; } = HttpResultStatus.Success;
+        public ResultStatus Status { get; set; } = ResultStatus.Success;
 
         public static Result Success()
         {
-            return new Result(HttpResultStatus.Success);
+            return new Result(ResultStatus.Success);
         }
 
         public static Result Error(string message)
         {
-            return new Result(message, HttpResultStatus.Error);
+            return new Result(message, ResultStatus.Error);
         }
 
         public Result()
         {
         }
 
-        public Result(HttpResultStatus status)
+        public Result(ResultStatus status)
         {
             Status = status;
         }
 
-        public Result(string message, HttpResultStatus status)
+        public Result(string message, ResultStatus status)
         {
             Message = message;
             Status = status;

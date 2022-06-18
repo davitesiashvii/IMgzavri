@@ -7,12 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IMgzavri.FileStore.Client\IMgzavri.FileStore.Client.csproj" />
     <ProjectReference Include="..\IMgzavri.Infrastructure\IMgzavri.Infrastructure.csproj" />
     <ProjectReference Include="..\IMgzavri.Shared\IMgzavri.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\ResponceModels\" />
   </ItemGroup>
 
   <ItemGroup>

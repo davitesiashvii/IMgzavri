@@ -8,7 +8,8 @@ namespace IMgzavri.Commands.Commands.Auth
 {
     public record RegisterUserCommand(
         string Email,
-        string Name,
+        string FirstName,
+        string LastName,
         string MobileNumber,
         string IdNumber,
         string Password

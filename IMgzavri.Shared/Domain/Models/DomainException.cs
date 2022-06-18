@@ -23,4 +23,14 @@ namespace IMgzavri.Shared.Domain.Models
             Level = level;
         }
     }
+
+    public class FileStorageException : Exception
+    {
+        public ExceptionLevel Level { get; protected set; }
+
+        public FileStorageException(string message, ExceptionLevel level, Exception innerException = null) : base(message, innerException)
+        {
+            Level = level;
+        }
+    }
 }

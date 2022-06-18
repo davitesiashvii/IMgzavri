@@ -1,4 +1,5 @@
 ﻿using IMgzavri.Commands.Commands.Auth;
+using IMgzavri.FileStore.Client;
 using IMgzavri.Infrastructure.Db;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
@@ -8,7 +9,7 @@ namespace IMgzavri.Commands.Handlers.Auth
 {
     public class ValidateCodeCommandHandler : CommandHandler<ValidateCodeCommand>
     {
-        public ValidateCodeCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth) : base(context, auth)
+        public ValidateCodeCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
         {
         }
 

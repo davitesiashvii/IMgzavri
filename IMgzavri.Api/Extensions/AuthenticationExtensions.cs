@@ -41,7 +41,7 @@ namespace IMgzavri.Api.Extensions
             })
                 .AddJwtBearer(x =>
                 {
-                    x.RequireHttpsMetadata = false;
+                    x.RequireHttpsMetadata = true;
                     x.SaveToken = true;
                     x.TokenValidationParameters = tokenValidationParameters;
                 });

@@ -46,7 +46,7 @@ namespace IMgzavri.Api.Controllers
         }
 
         [HttpPost("vertify-email-and-send-validate-code")]
-        public async Task<IActionResult> Refresh([FromBody] VertifyEmailAndSendValidateCodeCommand cmd, CancellationToken ct)
+        public async Task<IActionResult> VertifyEmail([FromBody] VertifyEmailAndSendValidateCodeCommand cmd, CancellationToken ct)
         {
             var result = await Mediator.SendAsync(cmd, ct);
 
@@ -54,7 +54,7 @@ namespace IMgzavri.Api.Controllers
         }
 
         [HttpPost("validate-code")]
-        public async Task<IActionResult> Refresh([FromBody] ValidateCodeCommand cmd, CancellationToken ct)
+        public async Task<IActionResult> ValidateCode([FromBody] ValidateCodeCommand cmd, CancellationToken ct)
         {
             var result = await Mediator.SendAsync(cmd, ct);
 
@@ -63,7 +63,7 @@ namespace IMgzavri.Api.Controllers
 
 
         [HttpPost("restore-password")]
-        public async Task<IActionResult> Refresh([FromBody] RestorePasswordCommand cmd, CancellationToken ct)
+        public async Task<IActionResult> RestorePassword([FromBody] RestorePasswordCommand cmd, CancellationToken ct)
         {
             var result = await Mediator.SendAsync(cmd, ct);
 

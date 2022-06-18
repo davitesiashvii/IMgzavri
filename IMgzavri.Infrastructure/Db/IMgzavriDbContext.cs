@@ -25,6 +25,16 @@ namespace IMgzavri.Infrastructure.Db
 
         public DbSet<RefreshToken> RefreshTokens { get; set; }
 
+        public DbSet<Car> Cars { get; set; }
+
+        public DbSet<CarMarck> CarMarcks { get; set; }
+
+        public DbSet<CarImage> CarImages { get; set; }
+
+        public DbSet<Statement> Statements { get; set; }
+
+        public DbSet<City> Cities { get; set; }
+
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -36,6 +46,23 @@ namespace IMgzavri.Infrastructure.Db
                 .HasOne(x=>x.User)
                 .WithMany(x=> x.RefreshTokens)
                 .HasForeignKey(x=>x.UserId);
+
+            modelBuilder.Entity<Car>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.Cars)
+                .HasForeignKey(x => x.UserId); 
+
+            //car
+            modelBuilder.Entity<CarImage>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.CarImages)
+                .HasForeignKey(x => x.CarId);
+
+            modelBuilder.Entity<Statement>()
+                .HasOne(x => x.CreateUser)
+                .WithMany(x => x.Statements)
+                .HasForeignKey(x => x.CreateUserId);
+
         }
     }
 }
