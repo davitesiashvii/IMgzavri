@@ -10,7 +10,7 @@ namespace IMgzavri.Api.Controllers
 {
     [Route("api/car")]
     [ApiController]
-    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CarController : BaseController
     {
         public CarController(IMediator mediator) : base(mediator)

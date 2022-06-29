@@ -1,13 +1,17 @@
 ﻿using IMgzavri.Commands.Commands.Statment;
 using IMgzavri.Queries.Queries.Statement;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleSoft.Mediator;
+using System.Net;
 
 namespace IMgzavri.Api.Controllers
 {
     [Route("api/statement")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class StatementController : BaseController
     {
         public StatementController(IMediator mediator) : base(mediator)

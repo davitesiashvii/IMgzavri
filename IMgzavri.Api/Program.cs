@@ -24,7 +24,7 @@ var config = builder.Configuration.Get<IRecommendSettings>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
@@ -42,30 +42,30 @@ builder.Services.AddMediator(o =>
 });
 
 
-builder.Services.AddSwaggerGen(x =>
-{
-    x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
+//builder.Services.AddSwaggerGen(x =>
+//{
+//    x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
 
-    //x.ExampleFilters();
+//    //x.ExampleFilters();
 
-    x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-    {
-        Description = "JWT Authorization header using the bearer scheme",
-        Name = "Authorization",
-        In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey
-    });
-    x.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {new OpenApiSecurityScheme{Reference = new OpenApiReference
-                    {
-                        Id = "Bearer",
-                        Type = ReferenceType.SecurityScheme
-                    }}, new List<string>()}
-                });
+//    x.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+//    {
+//        Description = "JWT Authorization header using the bearer scheme",
+//        Name = "Authorization",
+//        In = ParameterLocation.Header,
+//        Type = SecuritySchemeType.ApiKey
+//    });
+//    x.AddSecurityRequirement(new OpenApiSecurityRequirement
+//                {
+//                    {new OpenApiSecurityScheme{Reference = new OpenApiReference
+//                    {
+//                        Id = "Bearer",
+//                        Type = ReferenceType.SecurityScheme
+//                    }}, new List<string>()}
+//                });
 
     
-});
+//});
 
 
 //builder.Services.AddClientForFileStorage(config.GlobalSettings.FileStorageClientName, config.GlobalSettings.FileStorageUrl);
@@ -82,27 +82,28 @@ builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 
 builder.Services.AddScoped<IFileProcessor, FileProcessor>();
 
-InitializeDatabase(builder.Services);
+//InitializeDatabase(builder.Services);
 
 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "dotnetClaimAuthorization V1");
-    });
-}
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI(c =>
+//    {
+//        c.SwaggerEndpoint("/swagger/v1/swagger.json", "dotnetClaimAuthorization V1");
+//    });
+//}
+app.UseDeveloperExceptionPage();
 
-app.UseCors(c => c.AllowAnyOrigin()
-               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
-               .WithMethods("GET", "POST", "PUT", "DELETE")
-               .AllowCredentials()
-               .AllowAnyHeader());
+//app.UseCors(c => c.AllowAnyOrigin()
+//               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
+//               .WithMethods("GET", "POST", "PUT", "DELETE")
+//               .AllowCredentials()
+//               .AllowAnyHeader());
 
 app.UseAuthentication();
 
@@ -127,13 +128,13 @@ app.MapControllers();
 app.Run();
 
 
-void InitializeDatabase(IServiceCollection services)
-{
-    var sp = services.BuildServiceProvider();
-    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
-    using var scope = scopeFactory.CreateScope();
-    using var context = sp.GetService(typeof(IMgzavriDbContext)) as IMgzavriDbContext;
-    context.Database.Migrate();
-}
+//void InitializeDatabase(IServiceCollection services)
+//{
+//    var sp = services.BuildServiceProvider();
+//    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+//    using var scope = scopeFactory.CreateScope();
+//    using var context = sp.GetService(typeof(IMgzavriDbContext)) as IMgzavriDbContext;
+//    context.Database.Migrate();
+//}
 
 

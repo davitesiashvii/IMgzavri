@@ -69,5 +69,11 @@ namespace IMgzavri.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpGet("test")]
+        public async Task<IActionResult> Test(CancellationToken ct)
+        {
+            return Ok("respect");
+        }
     }
 }
