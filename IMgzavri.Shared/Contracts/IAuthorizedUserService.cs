@@ -1,21 +1,21 @@
-﻿using IMgzavri.Domain.Models;
+﻿//using IMgzavri.Domain.Models;
 using IMgzavri.Shared.Domain.Models;
 using System.Security.Claims;
 
-namespace IMgzavri.Shared.Contracts
-{
-    public interface IAuthorizedUserService
-    {
-        ClaimsPrincipal GetAuthorizedUser();
+//namespace IMgzavri.Shared.Contracts
+//{
+//    public interface IAuthorizedUserService
+//    {
+//        ClaimsPrincipal GetAuthorizedUser();
 
-        bool IsAuthorized();
+//        bool IsAuthorized();
 
-        Guid GetCurrentUserId();
+//        Guid GetCurrentUserId();
 
-        string GetCurrentUserEmail();
+//        string GetCurrentUserEmail();
 
-        GeneratedToken GenerateToken(Users user);
+//        GeneratedToken GenerateToken(Users user);
 
-        ClaimsPrincipal GetPrincipalFromToken(string token);
-    }
-}
+//        ClaimsPrincipal GetPrincipalFromToken(string token);
+//    }
+//}

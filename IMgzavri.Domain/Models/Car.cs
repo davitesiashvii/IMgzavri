@@ -10,9 +10,9 @@ namespace IMgzavri.Domain.Models
     {
         public Guid Id { get; set; }
 
-        public Guid ManufacturerId { get; set; }
+        public int MarckId { get; set; }
 
-        public Guid ModelId { get; set; }
+        public int ModelId { get; set; }
 
         public Guid? MainImageId { get; set; }
 

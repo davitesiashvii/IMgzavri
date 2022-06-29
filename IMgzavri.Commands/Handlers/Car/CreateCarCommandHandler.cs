@@ -1,11 +1,9 @@
 ﻿using IMgzavri.Commands.Commands.car;
-using IMgzavri.Commands.Extensions;
-using IMgzavri.Commands.Models.ResponceModels;
+using IMgzavri.Domain.FileStorage;
 using IMgzavri.Domain.Models;
-using IMgzavri.FileStore.Client;
-using IMgzavri.FileStore.Client.Models;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
-using IMgzavri.Shared.Contracts;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Domain.Models;
 
 
@@ -13,7 +11,7 @@ namespace IMgzavri.Commands.Handlers.Car
 {
     public class CreateCarCommandHandler : CommandHandler<CreateCarCommand>
     {
-        public CreateCarCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public CreateCarCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 
@@ -21,13 +19,13 @@ namespace IMgzavri.Commands.Handlers.Car
         {
             var userId = Auth.GetCurrentUserId();
 
-            FileUploadResult res = null;
-
+            FileSavingResult res = null;
+            var Id = Guid.NewGuid();
             try
             {
-                var fileSavingModel = new FileSavingModel(cmd.MainImage.Name, cmd.MainImage.Extension, cmd.MainImage.ContentType, cmd.MainImage.Size, Convert.FromBase64String(cmd.MainImage.File), userId, userId);
+                var fileSavingModel = new FileSavingModel(cmd.MainImage.Name, cmd.MainImage.Extension, cmd.MainImage.ContentType, cmd.MainImage.Size, Convert.FromBase64String(cmd.MainImage.File), userId, Id);
 
-                res = await FileStorage.UploadFile(fileSavingModel);
+                res = FileStorage.UploadFile(fileSavingModel);
             }
             catch { }
 
@@ -35,19 +33,20 @@ namespace IMgzavri.Commands.Handlers.Car
             if (cmd.Images.Any())
             {
                 var filesModel = new List<FileSavingModel>() { };
-                var res2 = new List<FileUploadResult>();
+                var res2 = new List<FileSavingResult>();
                 try
                 {
                     cmd.Images.ForEach(x =>
                     {
-                        filesModel.Add(new FileSavingModel(x.Name, x.Extension, x.ContentType, x.Size, Convert.FromBase64String(x.File), userId, userId));
+                        filesModel.Add(new FileSavingModel(x.Name, x.Extension, x.ContentType, x.Size, Convert.FromBase64String(x.File), userId, Id));
                     });
-                    res2 = await FileStorage.UploadFiles(filesModel);
+                    res2 = FileStorage.UploadFiles(filesModel);
                 }
                 catch { }
                 carImages = res2.Select(x => new CarImage()
                 {
                     Id = Guid.NewGuid(),
+                    ImageId = x.FileId,
                 }).ToList();
             }
 
@@ -56,9 +55,10 @@ namespace IMgzavri.Commands.Handlers.Car
                 Id = Guid.NewGuid(),
                 UserId = userId,
                 CreateDate = DateTime.Now,
-                ManufacturerId = cmd.ManufacturerId,
+                MarckId = cmd.MarckId,
                 ModelId = cmd.ModelId,
-                CarImages = carImages,
+                MainImageId = res.FileId,
+                CarImages = carImages
             };
             await context.Cars.AddAsync(car);
             await context.SaveChangesAsync();

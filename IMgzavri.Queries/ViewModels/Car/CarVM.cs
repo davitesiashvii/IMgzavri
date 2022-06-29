@@ -8,11 +8,11 @@ namespace IMgzavri.Queries.ViewModels.Car
 {
     public class CarVM
     {
-        public Guid Id { get; set; }
-        public string Manufacturer { get; set; }
+        public Guid CarId { get; set; }
+        public string Marck { get; set; }
         public string Model { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string mainImageLink { get; set; }
+        public string MainImageLink { get; set; }
         public List<string> Images { get; set; }
     }
 }

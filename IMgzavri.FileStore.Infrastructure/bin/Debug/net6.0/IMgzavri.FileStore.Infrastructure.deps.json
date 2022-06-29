@@ -17,7 +17,7 @@
           "Microsoft.Extensions.Configuration": "6.0.1",
           "Microsoft.Extensions.Configuration.FileExtensions": "6.0.0",
           "Microsoft.Extensions.Configuration.Json": "6.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0"
+          "SimpleSoft.Mediator.Microsoft.Extensions": "2.2.0"
         },
         "runtime": {
           "IMgzavri.FileStore.Infrastructure.dll": {}
@@ -217,17 +217,6 @@
           }
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/6.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
       "Microsoft.Extensions.Configuration.FileExtensions/6.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": "6.0.1",
@@ -354,21 +343,6 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.21.52210"
-          }
-        }
-      },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Options": "6.0.0",
-          "Microsoft.Extensions.Primitives": "6.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.52210"
           }
@@ -501,6 +475,38 @@
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
             "assemblyVersion": "1.9.0.0",
             "fileVersion": "1.9.0.1"
+          }
+        }
+      },
+      "SimpleSoft.Mediator/2.2.0": {
+        "dependencies": {
+          "SimpleSoft.Mediator.Abstractions": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.0.21300"
+          }
+        }
+      },
+      "SimpleSoft.Mediator.Abstractions/2.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.Abstractions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.0.21300"
+          }
+        }
+      },
+      "SimpleSoft.Mediator.Microsoft.Extensions/2.2.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "SimpleSoft.Mediator": "2.2.0"
+        },
+        "runtime": {
+          "lib/netstandard2.1/SimpleSoft.Mediator.Microsoft.Extensions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.2.0.21300"
           }
         }
       },
@@ -852,11 +858,6 @@
           }
         }
       },
-      "IMgzavri.Domain/1.0.0": {
-        "runtime": {
-          "IMgzavri.Domain.dll": {}
-        }
-      },
       "IMgzavri.FileStore.Domain/1.0.0": {
         "dependencies": {
           "IMgzavri.Shared": "1.0.0"
@@ -867,7 +868,6 @@
       },
       "IMgzavri.Shared/1.0.0": {
         "dependencies": {
-          "IMgzavri.Domain": "1.0.0",
           "MailKit": "3.3.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.Extensions.Http": "6.0.0",
@@ -999,13 +999,6 @@
       "path": "microsoft.extensions.configuration.abstractions/6.0.0",
       "hashPath": "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Configuration.Binder/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-b3ErKzND8LIC7o08QAVlKfaEIYEvLJbtmVbFZVBRXeu9YkKfSSzLZfR1SUfQPBIy9mKLhEtJgGYImkcMNaKE0A==",
-      "path": "microsoft.extensions.configuration.binder/6.0.0",
-      "hashPath": "microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512"
-    },
     "Microsoft.Extensions.Configuration.FileExtensions/6.0.0": {
       "type": "package",
       "serviceable": true,
@@ -1082,13 +1075,6 @@
       "sha512": "sha512-dzXN0+V1AyjOe2xcJ86Qbo233KHuLEY0njf/P2Kw8SfJU+d45HNS2ctJdnEnrWbM9Ye2eFgaC5Mj9otRMU6IsQ==",
       "path": "microsoft.extensions.options/6.0.0",
       "hashPath": "microsoft.extensions.options.6.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bXWINbTn0vC0FYc9GaQTISbxhQLAMrvtbuvD9N6JelEaIS/Pr62wUCinrq5bf1WRBGczt1v4wDhxFtVFNcMdUQ==",
-      "path": "microsoft.extensions.options.configurationextensions/6.0.0",
-      "hashPath": "microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/6.0.0": {
       "type": "package",
@@ -1187,6 +1173,27 @@
       "sha512": "sha512-eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
       "path": "portable.bouncycastle/1.9.0",
       "hashPath": "portable.bouncycastle.1.9.0.nupkg.sha512"
+    },
+    "SimpleSoft.Mediator/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5sHDuENTD5i1KUWk8sycTv3dE2NVQDqjxWlUIffOZVd/EXmUhQtqfYufnzoQ3VORWUdH2ddU+byXZwN/4bsC5g==",
+      "path": "simplesoft.mediator/2.2.0",
+      "hashPath": "simplesoft.mediator.2.2.0.nupkg.sha512"
+    },
+    "SimpleSoft.Mediator.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uKuTsjebu4Clh80KpUdOTTILvSAM34jNkWpfMaV0loCOW+S9Yo19g6bnavaiTZ6xe8jVJTz7n3NJNLZ0Yg9o4A==",
+      "path": "simplesoft.mediator.abstractions/2.2.0",
+      "hashPath": "simplesoft.mediator.abstractions.2.2.0.nupkg.sha512"
+    },
+    "SimpleSoft.Mediator.Microsoft.Extensions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-82F7v10RCF1uhNYIJHqTMiM0URUHWtBL2zgTAfh8nHBA6kilhDKtASlDxBH1Lc4spLXrpg8mvn397BmIU/ooTw==",
+      "path": "simplesoft.mediator.microsoft.extensions/2.2.0",
+      "hashPath": "simplesoft.mediator.microsoft.extensions.2.2.0.nupkg.sha512"
     },
     "System.Collections/4.3.0": {
       "type": "package",
@@ -1460,11 +1467,6 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
-    },
-    "IMgzavri.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "IMgzavri.FileStore.Domain/1.0.0": {
       "type": "project",

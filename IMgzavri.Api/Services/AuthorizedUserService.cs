@@ -1,5 +1,6 @@
 ﻿using IMgzavri.Api.Models;
 using IMgzavri.Domain.Models;
+using IMgzavri.Infrastructure;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
 using Microsoft.IdentityModel.Tokens;
@@ -30,7 +31,7 @@ namespace IMgzavri.Api.Services
                 .HttpContext
                 .User
                 .Claims
-                .First(x => x.Type == "Id").Value);
+                .First(x => x.Type == "id").Value);
 
         public string GetCurrentUserEmail() =>
             _contextAccessor

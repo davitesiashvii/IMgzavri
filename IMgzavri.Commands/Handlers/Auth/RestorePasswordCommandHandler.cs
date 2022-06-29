@@ -1,8 +1,8 @@
 ﻿using IMgzavri.Commands.Commands.Auth;
 using IMgzavri.Commands.Models.ResultModels;
-using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
-using IMgzavri.Shared.Contracts;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,7 +15,7 @@ namespace IMgzavri.Commands.Handlers.Auth
 {
     public class RestorePasswordCommandHandler : CommandHandler<RestorePasswordCommand>
     {
-        public RestorePasswordCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public RestorePasswordCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 

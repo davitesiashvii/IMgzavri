@@ -10,7 +10,7 @@ namespace IMgzavri.Api.Controllers
 {
     [Route("api/car")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CarController : BaseController
     {
         public CarController(IMediator mediator) : base(mediator)
@@ -20,15 +20,26 @@ namespace IMgzavri.Api.Controllers
         [HttpGet("get-car-marcks")]
         public async Task<IActionResult> GetCarMarcks(CancellationToken ct)
         {
-            var result = await Mediator.FetchAsync(new GetCarMarcksQuery(), ct);
+            var result = await Mediator.FetchAsync(new GetCarMarckQuery(), ct);
 
             return Ok(result);
         }
 
-        [HttpGet("get-cars/{userId}")]
+        [HttpGet("get-car-models/{marckId}")]
+        public async Task<IActionResult> GetCarMarcks(int marckId, CancellationToken ct)
+        {
+            var result = await Mediator.FetchAsync(new GetCarModelsQuery(marckId), ct);
+
+            return Ok(result);
+        }
+
+
+
+
+        [HttpGet("get-cars")]
         public async Task<IActionResult> GetCars(Guid userId, CancellationToken ct)
         {
-            var result = await Mediator.FetchAsync(new GetCarsQuery(userId), ct);
+            var result = await Mediator.FetchAsync(new GetCarsQuery(), ct);
 
             return Ok(result);
         }

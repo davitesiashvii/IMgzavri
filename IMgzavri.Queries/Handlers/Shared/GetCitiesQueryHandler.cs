@@ -1,20 +1,17 @@
-﻿using IMgzavri.FileStore.Client;
+﻿
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Queries.Shared;
 using IMgzavri.Queries.ViewModels.Shared;
-using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace IMgzavri.Queries.Handlers.Shared
 {
     public class GetCitiesQueryHandler : QueryHandler<GetCitiesQuery>
     {
-        public GetCitiesQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public GetCitiesQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 

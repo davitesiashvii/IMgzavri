@@ -1,22 +1,18 @@
 ﻿using IMgzavri.Commands.Commands.Auth;
-using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
 using IMgzavri.Shared.ExternalServices;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IMgzavri.Commands.Handlers.Auth
 {
     public class VertifyEmailAndSendValidateCodeCommandHandler : CommandHandler<VertifyEmailAndSendValidateCodeCommand>
     {
         private readonly IMailService _mailService;
-        public VertifyEmailAndSendValidateCodeCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage, IMailService mailService) : base(context, auth, fileStorage)
+        public VertifyEmailAndSendValidateCodeCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage, IMailService mailService) : base(context, auth, fileStorage)
         {
             _mailService = mailService;
         }

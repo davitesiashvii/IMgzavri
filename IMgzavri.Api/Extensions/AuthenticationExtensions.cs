@@ -1,5 +1,6 @@
 ﻿using IMgzavri.Api.Models;
 using IMgzavri.Api.Services;
+using IMgzavri.Infrastructure;
 using IMgzavri.Shared.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

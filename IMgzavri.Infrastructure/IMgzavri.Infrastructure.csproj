@@ -23,4 +23,8 @@
     <ProjectReference Include="..\IMgzavri.Domain\IMgzavri.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FileService\" />
+  </ItemGroup>
+
 </Project>

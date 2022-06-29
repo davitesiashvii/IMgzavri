@@ -1,5 +1,7 @@
-﻿using IMgzavri.FileStore.Client;
+﻿using IMgzavri.Domain.FileStorage;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Extension;
 using IMgzavri.Queries.Queries.Profile;
 using IMgzavri.Queries.ViewModels;
@@ -13,7 +15,7 @@ namespace IMgzavri.Queries.Handlers.Profile
 {
     public class GetUserInfoQueryHandler : QueryHandler<GetUserInfoQuery>
     {
-        public GetUserInfoQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth,fileStorage)
+        public GetUserInfoQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth,fileStorage)
         {
         }
 
@@ -26,7 +28,7 @@ namespace IMgzavri.Queries.Handlers.Profile
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = await FileStorage.GetFilePhysicalPath(user.PhotoId.Value);
+                fmRes =  FileStorage.GetFilePhysicalPath(user.PhotoId.Value);
             }
             catch { }
            

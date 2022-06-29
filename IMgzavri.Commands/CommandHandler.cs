@@ -1,5 +1,7 @@
 ﻿using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
 using SimpleSoft.Mediator;
@@ -13,9 +15,9 @@ namespace IMgzavri.Commands
         //protected ClientServiceProvider ClientServiceProvider;
         protected IAuthorizedUserService Auth;
 
-        protected IFileStorageClient FileStorage { get; }
+        protected IFileStorageService FileStorage { get; }
 
-        protected CommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage)
+        protected CommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage)
         {
             this.context = context;
             //ClientServiceProvider = clientServiceProvider;

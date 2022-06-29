@@ -227,18 +227,6 @@
           "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
-        }
-      },
       "Microsoft.Extensions.Configuration.FileExtensions/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -397,22 +385,6 @@
         },
         "runtime": {
           "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {}
-        }
-      },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Options": "6.0.0",
-          "Microsoft.Extensions.Primitives": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
       "Microsoft.Extensions.Primitives/6.0.0": {
@@ -588,6 +560,41 @@
         },
         "runtime": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
+        }
+      },
+      "SimpleSoft.Mediator/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "SimpleSoft.Mediator.Abstractions": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.dll": {}
+        }
+      },
+      "SimpleSoft.Mediator.Abstractions/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/SimpleSoft.Mediator.Abstractions.dll": {}
+        }
+      },
+      "SimpleSoft.Mediator.Microsoft.Extensions/2.2.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "3.0.0",
+          "SimpleSoft.Mediator": "2.2.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/SimpleSoft.Mediator.Microsoft.Extensions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/SimpleSoft.Mediator.Microsoft.Extensions.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1174,16 +1181,6 @@
           }
         }
       },
-      "IMgzavri.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/IMgzavri.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IMgzavri.Domain.dll": {}
-        }
-      },
       "IMgzavri.FileStore.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1201,7 +1198,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "IMgzavri.Domain": "1.0.0",
           "MailKit": "3.3.0",
           "Microsoft.EntityFrameworkCore": "6.0.5",
           "Microsoft.Extensions.Http": "6.0.0",
@@ -1608,25 +1604,6 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/6.0.0": {
-      "sha512": "b3ErKzND8LIC7o08QAVlKfaEIYEvLJbtmVbFZVBRXeu9YkKfSSzLZfR1SUfQPBIy9mKLhEtJgGYImkcMNaKE0A==",
-      "type": "package",
-      "path": "microsoft.extensions.configuration.binder/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.Configuration.Binder.dll",
-        "lib/net461/Microsoft.Extensions.Configuration.Binder.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
-        "microsoft.extensions.configuration.binder.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
     "Microsoft.Extensions.Configuration.FileExtensions/6.0.0": {
       "sha512": "V4Dth2cYMZpw3HhGw9XUDIijpI6gN+22LDt0AhufIgOppCUfpWX4483OmN+dFXRJkJLc8Tv0Q8QK+1ingT2+KQ==",
       "type": "package",
@@ -1896,25 +1873,6 @@
         "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
         "microsoft.extensions.options.6.0.0.nupkg.sha512",
         "microsoft.extensions.options.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
-      "sha512": "bXWINbTn0vC0FYc9GaQTISbxhQLAMrvtbuvD9N6JelEaIS/Pr62wUCinrq5bf1WRBGczt1v4wDhxFtVFNcMdUQ==",
-      "type": "package",
-      "path": "microsoft.extensions.options.configurationextensions/6.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
-        "microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
-        "microsoft.extensions.options.configurationextensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
     },
@@ -2257,6 +2215,61 @@
         "lib/netstandard2.0/BouncyCastle.Crypto.xml",
         "portable.bouncycastle.1.9.0.nupkg.sha512",
         "portable.bouncycastle.nuspec"
+      ]
+    },
+    "SimpleSoft.Mediator/2.2.0": {
+      "sha512": "5sHDuENTD5i1KUWk8sycTv3dE2NVQDqjxWlUIffOZVd/EXmUhQtqfYufnzoQ3VORWUdH2ddU+byXZwN/4bsC5g==",
+      "type": "package",
+      "path": "simplesoft.mediator/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SimpleSoft.Mediator.dll",
+        "lib/net40/SimpleSoft.Mediator.xml",
+        "lib/net45/SimpleSoft.Mediator.dll",
+        "lib/net45/SimpleSoft.Mediator.xml",
+        "lib/netstandard1.1/SimpleSoft.Mediator.dll",
+        "lib/netstandard1.1/SimpleSoft.Mediator.xml",
+        "lib/netstandard2.0/SimpleSoft.Mediator.dll",
+        "lib/netstandard2.0/SimpleSoft.Mediator.xml",
+        "simplesoft.mediator.2.2.0.nupkg.sha512",
+        "simplesoft.mediator.nuspec"
+      ]
+    },
+    "SimpleSoft.Mediator.Abstractions/2.2.0": {
+      "sha512": "uKuTsjebu4Clh80KpUdOTTILvSAM34jNkWpfMaV0loCOW+S9Yo19g6bnavaiTZ6xe8jVJTz7n3NJNLZ0Yg9o4A==",
+      "type": "package",
+      "path": "simplesoft.mediator.abstractions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/SimpleSoft.Mediator.Abstractions.dll",
+        "lib/net40/SimpleSoft.Mediator.Abstractions.xml",
+        "lib/net45/SimpleSoft.Mediator.Abstractions.dll",
+        "lib/net45/SimpleSoft.Mediator.Abstractions.xml",
+        "lib/netstandard1.0/SimpleSoft.Mediator.Abstractions.dll",
+        "lib/netstandard1.0/SimpleSoft.Mediator.Abstractions.xml",
+        "lib/netstandard2.0/SimpleSoft.Mediator.Abstractions.dll",
+        "lib/netstandard2.0/SimpleSoft.Mediator.Abstractions.xml",
+        "simplesoft.mediator.abstractions.2.2.0.nupkg.sha512",
+        "simplesoft.mediator.abstractions.nuspec"
+      ]
+    },
+    "SimpleSoft.Mediator.Microsoft.Extensions/2.2.0": {
+      "sha512": "82F7v10RCF1uhNYIJHqTMiM0URUHWtBL2zgTAfh8nHBA6kilhDKtASlDxBH1Lc4spLXrpg8mvn397BmIU/ooTw==",
+      "type": "package",
+      "path": "simplesoft.mediator.microsoft.extensions/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard1.1/SimpleSoft.Mediator.Microsoft.Extensions.dll",
+        "lib/netstandard1.1/SimpleSoft.Mediator.Microsoft.Extensions.xml",
+        "lib/netstandard2.0/SimpleSoft.Mediator.Microsoft.Extensions.dll",
+        "lib/netstandard2.0/SimpleSoft.Mediator.Microsoft.Extensions.xml",
+        "lib/netstandard2.1/SimpleSoft.Mediator.Microsoft.Extensions.dll",
+        "lib/netstandard2.1/SimpleSoft.Mediator.Microsoft.Extensions.xml",
+        "simplesoft.mediator.microsoft.extensions.2.2.0.nupkg.sha512",
+        "simplesoft.mediator.microsoft.extensions.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -4266,11 +4279,6 @@
         "version.txt"
       ]
     },
-    "IMgzavri.Domain/1.0.0": {
-      "type": "project",
-      "path": "../IMgzavri.Domain/IMgzavri.Domain.csproj",
-      "msbuildProject": "../IMgzavri.Domain/IMgzavri.Domain.csproj"
-    },
     "IMgzavri.FileStore.Domain/1.0.0": {
       "type": "project",
       "path": "../IMgzavri.FileStore.Domain/IMgzavri.FileStore.Domain.csproj",
@@ -4293,7 +4301,7 @@
       "Microsoft.Extensions.Configuration >= 6.0.1",
       "Microsoft.Extensions.Configuration.FileExtensions >= 6.0.0",
       "Microsoft.Extensions.Configuration.Json >= 6.0.0",
-      "Microsoft.Extensions.Options.ConfigurationExtensions >= 6.0.0"
+      "SimpleSoft.Mediator.Microsoft.Extensions >= 2.2.0"
     ]
   },
   "packageFolders": {
@@ -4375,9 +4383,9 @@
             "target": "Package",
             "version": "[6.0.0, )"
           },
-          "Microsoft.Extensions.Options.ConfigurationExtensions": {
+          "SimpleSoft.Mediator.Microsoft.Extensions": {
             "target": "Package",
-            "version": "[6.0.0, )"
+            "version": "[2.2.0, )"
           }
         },
         "imports": [

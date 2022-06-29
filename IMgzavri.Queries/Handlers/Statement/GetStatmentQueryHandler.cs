@@ -1,5 +1,7 @@
-﻿using IMgzavri.FileStore.Client;
+﻿using IMgzavri.Domain.FileStorage;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Extension;
 using IMgzavri.Queries.Queries.Statement;
 using IMgzavri.Queries.ViewModels;
@@ -17,7 +19,7 @@ namespace IMgzavri.Queries.Handlers.Statement
 {
     public class GetStatmentQueryHandler : QueryHandler<GetStatmentQuery>
     {
-        public GetStatmentQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public GetStatmentQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 
@@ -25,7 +27,7 @@ namespace IMgzavri.Queries.Handlers.Statement
         {
             var userId = Auth.GetCurrentUserId();
 
-            var statment = await context.Statements.FirstOrDefaultAsync(x=>x.CreateUserId == userId && x.Id == query.Id);
+            var statment = await context.Statements.FirstOrDefaultAsync(x=>x.CreateUserId == userId && x.Id == query.StatmentId);
 
             if (statment == null)
                 return Result.Error("დაფიქსირდა სისტემური შეცდომა");
@@ -33,7 +35,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = await FileStorage.GetFilePhysicalPath(statment.CreateUser.PhotoId.Value);
+                fmRes =  FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x=>x.Id == statment.CarId).MainImageId.Value);
             }
             catch { }
 

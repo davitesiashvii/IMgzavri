@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace IMgzavri.Queries.Queries.Car
 {
-    public record GetCarMarcksQuery(): Query;
+    public record GetCarMarckQuery(): Query;
 
-    public record GetCarsQuery(Guid userId): Query;
+    public record GetCarsQuery(): Query;
 
-    public record GetCarQuery(Guid carId): Query;
+    public record GetCarQuery(Guid CarId): Query;
+
+    public record GetCarModelsQuery(int MarckId):Query;
 }

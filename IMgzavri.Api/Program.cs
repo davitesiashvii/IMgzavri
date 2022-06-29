@@ -1,7 +1,7 @@
 using IMgzavri.Api.Extensions;
 using IMgzavri.Commands;
-using IMgzavri.FileStore.Client;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
@@ -9,6 +9,7 @@ using IMgzavri.Shared.ExternalServices;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 
@@ -39,44 +40,7 @@ builder.Services.AddMediator(o =>
     o.AddHandlersFromAssemblyOf<Command>();
     o.AddHandlersFromAssemblyOf<Query>();
 });
-//builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new OpenApiInfo { Title = "IRecommend", Version = "v1" });
-//    c.CustomSchemaIds(x => x.FullName);
-//});
 
-//builder.Services.AddSwaggerGen(x =>
-//    {
-//        x.SwaggerDoc("v1", new OpenApiInfo { Title = "dotnetClaimAuthorization", Version = "v1" });
-//        x.AddSecurityDefinition("bearer", new OpenApiSecurityScheme
-//        {
-//            In = ParameterLocation.Header,
-//            Description = "insert token",
-//            Name = "Autorization",
-//            Type = SecuritySchemeType.Http,
-//            BearerFormat = "JWT",
-//            Scheme = "bearer"
-//        });
-//        x.AddSecurityRequirement(new OpenApiSecurityRequirement()
-//      {
-//        {
-//          new OpenApiSecurityScheme
-//          {
-//            Reference = new OpenApiReference
-//              {
-//                Type = ReferenceType.SecurityScheme,
-//                Id = "Bearer"
-//              },
-//              Scheme = "oauth2",
-//              Name = "Bearer",
-//              In = ParameterLocation.Header,
-
-//            },
-//            new List<string>()
-//          }
-//        });
-
-//    });
 
 builder.Services.AddSwaggerGen(x =>
 {
@@ -104,7 +68,7 @@ builder.Services.AddSwaggerGen(x =>
 });
 
 
-builder.Services.AddClientForFileStorage(config.GlobalSettings.FileStorageClientName, config.GlobalSettings.FileStorageUrl);
+//builder.Services.AddClientForFileStorage(config.GlobalSettings.FileStorageClientName, config.GlobalSettings.FileStorageUrl);
 
 builder.Services.AddDbContext<IMgzavriDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IMgzavriDbContext")));
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
@@ -113,6 +77,10 @@ builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
 builder.Services.AddSingleton<IMailService, MailService>();
+
+builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+
+builder.Services.AddScoped<IFileProcessor, FileProcessor>();
 
 
 
@@ -129,9 +97,24 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseCors(c => c.AllowAnyOrigin()
+               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
+               .WithMethods("GET", "POST", "PUT", "DELETE")
+               .AllowCredentials()
+               .AllowAnyHeader());
+
 app.UseAuthentication();
 
-app.UseHsts();
+var config1 = builder.Configuration.Get<IRecommendFileStorageSettings>();
+app.UseStaticFiles();
+//app.UseFileServer(new FileServerOptions
+//{
+//    FileProvider = new
+//        PhysicalFileProvider(Path.Combine(config1.GlobalSettings.FileSystemBasePath, config1.GlobalSettings.MainFolderName)),
+//    RequestPath = new PathString(config1.GlobalSettings.FileServerRequestPath)
+//});
+
+//app.UseHsts();
 app.UseRouting();
 
 app.UseHttpsRedirection();

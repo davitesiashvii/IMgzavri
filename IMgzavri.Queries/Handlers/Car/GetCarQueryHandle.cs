@@ -1,5 +1,8 @@
-﻿using IMgzavri.FileStore.Client;
+﻿using IMgzavri.Domain.FileStorage;
+using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Extension;
 using IMgzavri.Queries.Queries.Car;
 using IMgzavri.Queries.ViewModels;
@@ -17,24 +20,24 @@ namespace IMgzavri.Queries.Handlers.Car
 {
     public class GetCarQueryHandle : QueryHandler<GetCarQuery>
     {
-        public GetCarQueryHandle(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public GetCarQueryHandle(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 
         public override async Task<Result> HandleAsync(GetCarQuery query, CancellationToken ct)
         {
-            var car = await context.Cars.FirstOrDefaultAsync(x => x.Id == query.Id);
+            var car = await context.Cars.FirstOrDefaultAsync(x => x.Id == query.CarId);
 
             if (car == null)
                 return Result.Error("");
 
             var carVm = new CarVM()
             {
-                Id = car.Id,
-                Manufacturer = context.CarMarcks.FirstOrDefault(z => z.Id == car.ManufacturerId).Name,
-                Model = context.CarMarcks.FirstOrDefault(z => z.Id == car.ModelId).Name,
+                CarId = car.Id,
+                Marck = context.CarMarcks.FirstOrDefault(m => m.Id == car.MarckId).Code,
+                Model = context.CarModels.FirstOrDefault(m => m.Id == car.ModelId).Code,
                 CreatedDate = car.CreateDate,
-                mainImageLink = this.GetImagelink(car.UserId),
+                MainImageLink = this.GetImagelink(car.MainImageId.Value),
                 Images = this.GetImagelinks(car.UserId)
             };
 
@@ -44,12 +47,12 @@ namespace IMgzavri.Queries.Handlers.Car
         }
 
 
-        private string GetImagelink(Guid userId)
+        private string GetImagelink(Guid mainImageId)
         {
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = FileStorage.GetFilePhysicalPath(context.Users.FirstOrDefault(x => x.Id == userId).PhotoId.Value).Result;
+                fmRes = FileStorage.GetFilePhysicalPath(mainImageId);
             }
             catch { return null; }
 
@@ -61,7 +64,7 @@ namespace IMgzavri.Queries.Handlers.Car
             var fmRes = new List<FileStoreLinkResult>();
             try
             {
-                fmRes = FileStorage.GetFilesPhysicalPaths(context.CarImages.Where(x => x.Id == carId).Select(z => z.ImageId).ToList()).Result;
+                fmRes = FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.Id == carId).Select(z => z.ImageId).ToList());
             }
             catch { return null; }
 

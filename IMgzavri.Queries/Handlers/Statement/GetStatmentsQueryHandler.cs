@@ -1,6 +1,9 @@
-﻿using IMgzavri.Domain.Models;
+﻿using IMgzavri.Domain.FileStorage;
+using IMgzavri.Domain.Models;
 using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Extension;
 using IMgzavri.Queries.Queries.Statement;
 using IMgzavri.Queries.ViewModels;
@@ -8,8 +11,6 @@ using IMgzavri.Queries.ViewModels.Statment;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
 using IMgzavri.Shared.ExternalServices;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -19,7 +20,7 @@ namespace IMgzavri.Queries.Handlers.Statement
 {
     public class GetStatmentsQueryHandler : QueryHandler<GetStatmentsQuery>
     {
-        public GetStatmentsQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public GetStatmentsQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 
@@ -54,7 +55,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = x.DateTo,
                 IsComplited = x.IsComplited,
                 CreateUserId = x.CreateUserId,
-                ImageLink = this.GetImagelink(x.CreateUserId)
+                ImageLink = this.GetImagelink(x.CarId)
             }); ;
 
             var result = new Result();
@@ -64,12 +65,12 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
 
-        private string GetImagelink(Guid userId)
+        private string GetImagelink(Guid carId)
         {
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = FileStorage.GetFilePhysicalPath(context.Users.FirstOrDefault(x=>x.Id == userId).PhotoId.Value).Result;
+                fmRes = FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
             }
             catch { return ""; }
 

@@ -29,9 +29,13 @@ namespace IMgzavri.Infrastructure.Db
 
         public DbSet<CarMarck> CarMarcks { get; set; }
 
+        public DbSet<CarModel> CarModels { get; set; }
+
         public DbSet<CarImage> CarImages { get; set; }
 
         public DbSet<Statement> Statements { get; set; }
+
+        public DbSet<IMgzavri.Domain.Models.File> Files { get; set; }
 
         public DbSet<City> Cities { get; set; }
 
@@ -62,6 +66,8 @@ namespace IMgzavri.Infrastructure.Db
                 .HasOne(x => x.CreateUser)
                 .WithMany(x => x.Statements)
                 .HasForeignKey(x => x.CreateUserId);
+
+                 
 
         }
     }

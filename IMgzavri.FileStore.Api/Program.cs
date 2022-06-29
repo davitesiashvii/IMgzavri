@@ -1,5 +1,4 @@
 using IMgzavri.FileStore.Api.Extensions;
-using IMgzavri.FileStore.Client;
 using IMgzavri.FileStore.Commands;
 using IMgzavri.FileStore.Domain;
 using IMgzavri.FileStore.Infrastructure.Db;
@@ -20,6 +19,7 @@ using Microsoft.Extensions.Hosting;
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container. 
 builder.Services.Configure<IRecommendFileStorageSettings>(builder.Configuration);
@@ -45,6 +45,7 @@ builder.Services.Configure<IRecommendFileStorageSettingsGlobalSettings>(builder.
 
 builder.Services.AddDbContext<IMgzavriFileStorageDbContext>(options => options.UseSqlServer(config.ConnectionStrings.IMgzavriFileStorageDbContext));
 
+builder.Services.InitializeDatabase<IMgzavriFileStorageDbContext>();
 
 builder.Services.AddScoped<IFileStorageRepository, FileStorageRepository>();
 
@@ -60,6 +61,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
@@ -70,8 +72,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
 
 app.ConfigureExceptionHandler();
 
@@ -87,7 +87,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 
 var config1 = builder.Configuration.Get<IRecommendFileStorageSettings>();
-
+app.UseStaticFiles();
 app.UseFileServer(new FileServerOptions
 {
     FileProvider = new
@@ -95,7 +95,6 @@ app.UseFileServer(new FileServerOptions
     RequestPath = new PathString(config1.GlobalSettings.FileServerRequestPath)
 });
 
-app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
@@ -103,4 +102,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
 app.Run();
+
+
+
+
+

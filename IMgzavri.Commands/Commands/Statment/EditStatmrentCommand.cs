@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace IMgzavri.Commands.Commands.Statment
 {
     public record EditStatmrentCommand(
-        Guid Id,
+        Guid StatmentId,
         Guid CreatorUserId,
         Guid CarId,
         string? Description,

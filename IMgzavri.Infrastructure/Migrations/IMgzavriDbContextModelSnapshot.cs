@@ -34,11 +34,11 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Property<Guid?>("MainImageId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ManufacturerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MarckId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("ModelId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ModelId")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
@@ -71,22 +71,37 @@ namespace IMgzavri.Infrastructure.Migrations
 
             modelBuilder.Entity("IMgzavri.Domain.Models.CarMarck", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("ManufacturerId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("CarMarcks");
+                });
+
+            modelBuilder.Entity("IMgzavri.Domain.Models.CarModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MarckId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CarModels");
                 });
 
             modelBuilder.Entity("IMgzavri.Domain.Models.City", b =>

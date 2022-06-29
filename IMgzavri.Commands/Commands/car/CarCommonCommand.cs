@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 namespace IMgzavri.Commands.Commands.car
 {
     public record CreateCarCommand(
-        Guid ManufacturerId,
-        Guid ModelId,
+        int MarckId,
+        int ModelId,
         SaveFileModel MainImage,
         List<SaveFileModel> Images
         ) : Command;
 
     public record UpdateCarCommand
         (
-        Guid Id,
-        Guid ManufacturerId,
-        Guid ModelId,
+        Guid CarId,
+        int MarckId,
+        int ModelId,
         SaveFileModel MainImage,
         List<SaveFileModel> Images
         ):Command;
 
     public record DeleteCarCommand(
-        Guid Id
+        Guid CarId
         ) : Command;
 
 }

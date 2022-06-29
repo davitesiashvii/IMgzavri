@@ -1,20 +1,16 @@
 ﻿using IMgzavri.Commands.Commands.Statment;
 using IMgzavri.Domain.Models;
-using IMgzavri.FileStore.Client;
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
-using IMgzavri.Shared.Contracts;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace IMgzavri.Commands.Handlers.Statment
 {
     public class CreateStatmentCommandHandler : CommandHandler<CreateStatmentCommand>
     {
-        public CreateStatmentCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public CreateStatmentCommandHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 

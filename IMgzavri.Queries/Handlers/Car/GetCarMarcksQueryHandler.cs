@@ -1,5 +1,7 @@
-﻿using IMgzavri.FileStore.Client;
+﻿
+using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
+using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Queries.Car;
 using IMgzavri.Queries.ViewModels.Car;
 using IMgzavri.Shared.Contracts;
@@ -12,47 +14,24 @@ using System.Threading.Tasks;
 
 namespace IMgzavri.Queries.Handlers.Car
 {
-    public class GetCarMarcksQueryHandler : QueryHandler<GetCarMarcksQuery>
+    public class GetCarMarcksQueryHandler : QueryHandler<GetCarMarckQuery>
     {
-        public GetCarMarcksQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageClient fileStorage) : base(context, auth, fileStorage)
+        public GetCarMarcksQueryHandler(IMgzavriDbContext context, IAuthorizedUserService auth, IFileStorageService fileStorage) : base(context, auth, fileStorage)
         {
         }
 
-        public override async Task<Result> HandleAsync(GetCarMarcksQuery query, CancellationToken ct)
+        public override async Task<Result> HandleAsync(GetCarMarckQuery query, CancellationToken ct)
         {
-            var carMarcks = context.CarMarcks.ToList();
+            var carMarcks = context.CarMarcks.AsQueryable();
 
             if(!carMarcks.Any())
                 return Result.Error("dfd");
 
-            var res = new List<CarMarckVm>();
-            carMarcks.ForEach(x =>
-            {
-                if (x.ManufacturerId == null && x.Type == 1)
-                {
-                    var models = new List<CarMarckVm>();
 
-                    var marks = carMarcks.Where(z => x.Id == z.ManufacturerId);
-                    if (marks.Any()) {
-                        models.AddRange(marks.Select(z => new CarMarckVm()
-                        {
-                            Id = z.Id,
-                            Name = z.Name,
-                            ManufacturerId = z.ManufacturerId,
-                            IsManufacturer = false,
-                            Models = null
-                        }).ToList());
-                    }
-                   
-                    res.Add(new CarMarckVm()
-                    {
-                        Id = x.Id,
-                        Name = x.Name,
-                        IsManufacturer = true,
-                        Models = models
-                    });
-                    
-                }
+            var res = carMarcks.Select(x => new CarMarckVm
+            {
+                MarckId = x.Id,
+                Name = x.Code,
             });
 
             var result = new Result();
@@ -60,7 +39,6 @@ namespace IMgzavri.Queries.Handlers.Car
             result.Response = res;
 
             return result;
-
 
         }
     }

@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SimpleSoft.Mediator" Version="2.2.0" />
-    <PackageReference Include="SimpleSoft.Mediator.Microsoft.Extensions" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\IMgzavri.FileStore.Infrastructure\IMgzavri.FileStore.Infrastructure.csproj" />
     <ProjectReference Include="..\IMgzavri.Shared\IMgzavri.Shared.csproj" />
   </ItemGroup>

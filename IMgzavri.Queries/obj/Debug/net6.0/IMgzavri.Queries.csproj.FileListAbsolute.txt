@@ -9,6 +9,8 @@ C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Queries.pdb
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Domain.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Client.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Domain.dll
+C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Infrastructure.dll
+C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Queries.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Infrastructure.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Shared.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Client.pdb
@@ -16,6 +18,8 @@ C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Infrastructure.p
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Shared.pdb
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.Domain.pdb
 C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Domain.pdb
+C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Infrastructure.pdb
+C:\Projects\IMgzavri\IMgzavri.Queries\bin\Debug\net6.0\IMgzavri.FileStore.Queries.pdb
 C:\Projects\IMgzavri\IMgzavri.Queries\obj\Debug\net6.0\IMgzavri.Queries.csproj.CopyComplete
 C:\Projects\IMgzavri\IMgzavri.Queries\obj\Debug\net6.0\IMgzavri.Queries.dll
 C:\Projects\IMgzavri\IMgzavri.Queries\obj\Debug\net6.0\refint\IMgzavri.Queries.dll

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace IMgzavri.Queries.Queries.Statement
 {
-    public record GetStatmentQuery(Guid Id) : Query;
+    public record GetStatmentQuery(Guid StatmentId) : Query;
 }

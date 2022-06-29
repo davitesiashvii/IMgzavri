@@ -588,16 +588,6 @@
         "compile": {
           "ref/netstandard1.3/System.Threading.Tasks.dll": {}
         }
-      },
-      "IMgzavri.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/IMgzavri.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/IMgzavri.Domain.dll": {}
-        }
       }
     }
   },
@@ -2522,16 +2512,10 @@
         "system.threading.tasks.4.3.0.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
-    },
-    "IMgzavri.Domain/1.0.0": {
-      "type": "project",
-      "path": "../IMgzavri.Domain/IMgzavri.Domain.csproj",
-      "msbuildProject": "../IMgzavri.Domain/IMgzavri.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "IMgzavri.Domain >= 1.0.0",
       "MailKit >= 3.3.0",
       "Microsoft.EntityFrameworkCore >= 6.0.5",
       "Microsoft.Extensions.Http >= 6.0.0",
@@ -2566,11 +2550,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
-              "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

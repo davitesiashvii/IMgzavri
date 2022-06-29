@@ -8,13 +8,8 @@ namespace IMgzavri.Queries.ViewModels.Car
 {
     public class CarMarckVm
     {
-        public Guid Id { get; set; }
+        public int MarckId { get; set; }
         public string Name { get; set; }
 
-        public Guid? ManufacturerId { get; set; }
-
-        public bool IsManufacturer { get; set; }
-
-        public List<CarMarckVm> Models { get; set; }
     }
 }
