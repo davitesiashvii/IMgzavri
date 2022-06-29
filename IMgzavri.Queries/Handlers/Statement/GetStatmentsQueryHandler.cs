@@ -1,6 +1,4 @@
 ﻿using IMgzavri.Domain.FileStorage;
-using IMgzavri.Domain.Models;
-using IMgzavri.FileStore.Client;
 using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
 using IMgzavri.Infrastructure.Service;
@@ -138,9 +136,9 @@ namespace IMgzavri.Queries.Handlers.Statement
                 query = query.Where(x => x.DateFrom == filter.DateFrom);
             if(filter.DateTo != null)
                 query = query.Where(x => x.DateTo == filter.DateTo);
-            if(filter.RoutFromId == Guid.Empty)
+            if(filter.RoutFromId != null)
                 query = query.Where(x => x.RoutFromId == filter.RoutFromId);
-            if(filter.RouteToId == Guid.Empty)
+            if(filter.RouteToId != null)
                 query = query.Where(x => x.RouteToId == filter.RouteToId);
             return query;
         }

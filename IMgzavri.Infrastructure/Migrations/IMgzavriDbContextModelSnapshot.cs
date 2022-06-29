@@ -106,9 +106,8 @@ namespace IMgzavri.Infrastructure.Migrations
 
             modelBuilder.Entity("IMgzavri.Domain.Models.City", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -116,6 +115,44 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("IMgzavri.Domain.Models.File", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CorrelationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset>("CreateDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("CreateUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTimeOffset?>("DeleteDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<Guid?>("DeleteUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Extension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("Size")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Files");
                 });
 
             modelBuilder.Entity("IMgzavri.Domain.Models.RefreshToken", b =>
@@ -182,11 +219,11 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<Guid>("RoutFromId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("RoutFromId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("RouteToId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("RouteToId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Seat")
                         .HasColumnType("int");

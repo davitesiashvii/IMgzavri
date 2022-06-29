@@ -1,6 +1,4 @@
 ﻿using IMgzavri.Commands.Models.ResponceModels;
-using IMgzavri.FileStore.Client;
-using IMgzavri.FileStore.Client.Models;
 using IMgzavri.Shared.Constants;
 using IMgzavri.Shared.Domain.Models;
 using Newtonsoft.Json;

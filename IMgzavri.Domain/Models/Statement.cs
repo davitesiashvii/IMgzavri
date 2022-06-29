@@ -14,8 +14,8 @@ namespace IMgzavri.Domain.Models
         public int Seat { get; set; }
         public DateTime CreatedDate { get; set; }
         public double Price { get; set; }
-        public Guid RoutFromId { get; set; }
-        public Guid RouteToId { get; set; }
+        public int RoutFromId { get; set; }
+        public int RouteToId { get; set; }
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public bool? IsComplited { get; set; }

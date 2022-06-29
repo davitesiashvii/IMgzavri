@@ -40,12 +40,32 @@ namespace IMgzavri.Infrastructure.Migrations
                 name: "Cities",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Cities", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Files",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CorrelationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Extension = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ContentType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<long>(type: "bigint", nullable: false),
+                    CreateDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    DeleteDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    DeleteUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Files", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -126,8 +146,8 @@ namespace IMgzavri.Infrastructure.Migrations
                     Seat = table.Column<int>(type: "int", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    RoutFromId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RouteToId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RoutFromId = table.Column<int>(type: "int", nullable: false),
+                    RouteToId = table.Column<int>(type: "int", nullable: false),
                     DateFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateTo = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsComplited = table.Column<bool>(type: "bit", nullable: true),
@@ -197,6 +217,9 @@ namespace IMgzavri.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "Files");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");

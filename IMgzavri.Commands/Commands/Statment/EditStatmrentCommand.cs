@@ -13,8 +13,8 @@ namespace IMgzavri.Commands.Commands.Statment
         string? Description,
         int Seat,
         Double Price,
-        Guid RoutFromId,
-        Guid RouteToId,
+        int RoutFromId,
+        int RouteToId,
         DateTime DateFrom,
         DateTime DateTo,
         bool? IsComplited

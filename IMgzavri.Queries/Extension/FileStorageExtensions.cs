@@ -1,4 +1,4 @@
-﻿using IMgzavri.FileStore.Client;
+﻿
 using IMgzavri.Queries.ViewModels;
 using IMgzavri.Shared.Constants;
 using Newtonsoft.Json;

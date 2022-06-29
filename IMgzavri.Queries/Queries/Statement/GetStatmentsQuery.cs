@@ -21,8 +21,8 @@ namespace IMgzavri.Queries.Queries.Statement
         double? PriceFrom,
         DateTime? DateFrom,
         DateTime? DateTo,
-        Guid RoutFromId,
-        Guid RouteToId
+        int? RoutFromId,
+        int? RouteToId
         );
 
     public record SearchStatment(

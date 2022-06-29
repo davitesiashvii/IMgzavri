@@ -82,6 +82,7 @@ builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 
 builder.Services.AddScoped<IFileProcessor, FileProcessor>();
 
+InitializeDatabase(builder.Services);
 
 
 
@@ -107,12 +108,12 @@ app.UseAuthentication();
 
 var config1 = builder.Configuration.Get<IRecommendFileStorageSettings>();
 app.UseStaticFiles();
-//app.UseFileServer(new FileServerOptions
-//{
-//    FileProvider = new
-//        PhysicalFileProvider(Path.Combine(config1.GlobalSettings.FileSystemBasePath, config1.GlobalSettings.MainFolderName)),
-//    RequestPath = new PathString(config1.GlobalSettings.FileServerRequestPath)
-//});
+app.UseFileServer(new FileServerOptions
+{
+    FileProvider = new
+        PhysicalFileProvider(Path.Combine(config1.GlobalSettings.FileSystemBasePath, config1.GlobalSettings.MainFolderName)),
+    RequestPath = new PathString(config1.GlobalSettings.FileServerRequestPath)
+});
 
 //app.UseHsts();
 app.UseRouting();
@@ -124,4 +125,15 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+void InitializeDatabase(IServiceCollection services)
+{
+    var sp = services.BuildServiceProvider();
+    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+    using var scope = scopeFactory.CreateScope();
+    using var context = sp.GetService(typeof(IMgzavriDbContext)) as IMgzavriDbContext;
+    context.Database.Migrate();
+}
+
 
